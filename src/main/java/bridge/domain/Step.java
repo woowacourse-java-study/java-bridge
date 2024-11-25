@@ -8,14 +8,16 @@ import java.util.stream.Collectors;
 
 public enum Step {
 	
-	UP_VALID("U"),
-	DOWN_VALID("D"),
+	UP_VALID("U", Move.UP_MOVE),
+	DOWN_VALID("D", Move.DOWN_MOVE),
 	;
 	
 	private final String value;
+	private final Move validMove;
 	
-	Step(String value) {
+	Step(String value, Move validMove) {
 		this.value = value;
+		this.validMove = validMove;
 	}
 	
 	public static Step from(int value) {
@@ -34,5 +36,9 @@ public enum Step {
 	
 	public String getValue() {
 		return value;
+	}
+	
+	public boolean isValid(Move move) {
+		return validMove == move;
 	}
 }
