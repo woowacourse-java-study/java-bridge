@@ -29,7 +29,7 @@ public class BridgeMaker {
     }
     
     private String makeOneStep() {
-        Move move = Move.from(bridgeNumberGenerator.generate());
-        return move.getStringValue();
+        Step step = Step.from(bridgeNumberGenerator.generate());
+        return step.getValue();
     }
 }

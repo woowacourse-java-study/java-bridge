@@ -2,33 +2,24 @@ package bridge.domain;
 
 import bridge.exception.CustomExceptions;
 
-import java.util.Objects;
+import java.util.Arrays;
 
-public class Move {
+public enum Move {
 	
-	private static final String UP_STRING = "U";
-	private static final String DOWN_STRING = "D";
+	UP_MOVE("U"),
+	DOWN_MOVE("D"),
+	;
 	
-	private final String value;
+	private final String inputValue;
 	
-	private Move(String value) {
-		Objects.requireNonNull(value);
-		validate(value);
-		this.value = value;
+	Move(String inputValue) {
+		this.inputValue = inputValue;
 	}
 	
-	public static Move from(int value) {
-		if (value == 0) return new Move(DOWN_STRING);
-		return new Move(UP_STRING);
-	}
-	
-	public String getStringValue() {
-		return value;
-	}
-	
-	private void validate(String value) {
-		if (!value.equals(UP_STRING) && !value.equals(DOWN_STRING)) {
-			throw CustomExceptions.INVALID_MOVE.get();
-		}
+	public static Move from(String value) {
+		return Arrays.stream(Move.values())
+				.filter(move -> move.inputValue.equals(value))
+				.findFirst()
+				.orElseThrow(CustomExceptions.INVALID_MOVE::get);
 	}
 }
