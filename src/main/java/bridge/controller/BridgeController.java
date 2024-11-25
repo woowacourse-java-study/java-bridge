@@ -5,7 +5,7 @@ import bridge.io.InputView;
 import bridge.io.OutputView;
 import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
 
-public class BridgeController {
+public class BridgeController implements Controller {
 	
 	private final InputView inputView;
 	private final OutputView outputView;
@@ -15,6 +15,7 @@ public class BridgeController {
 		this.outputView = outputView;
 	}
 	
+	@Override
 	public void run() {
 		outputView.printGreetings();
 		int bridgeSize = inputView.readBridgeSize();
