@@ -10,9 +10,6 @@ import java.util.List;
  */
 public class BridgeMaker {
     
-    private static final String UP_STRING = "U";
-    private static final String DOWN_STRING = "D";
-    
     private final BridgeNumberGenerator bridgeNumberGenerator;
     
     public BridgeMaker(BridgeNumberGenerator bridgeNumberGenerator) {
@@ -32,8 +29,7 @@ public class BridgeMaker {
     }
     
     private String makeOneStep() {
-        int value = bridgeNumberGenerator.generate();
-        if (value == 0) return DOWN_STRING;
-        return UP_STRING;
+        Move move = Move.from(bridgeNumberGenerator.generate());
+        return move.getStringValue();
     }
 }
