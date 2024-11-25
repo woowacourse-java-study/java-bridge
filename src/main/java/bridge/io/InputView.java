@@ -2,6 +2,7 @@ package bridge.io;
 
 import bridge.domain.Move;
 import bridge.domain.RestartCommand;
+import bridge.exception.CustomExceptions;
 import bridge.io.reader.Reader;
 import bridge.io.writer.Writer;
 
@@ -17,7 +18,11 @@ public class InputView {
     
     public int readBridgeSize() {
         writer.write("\n다리의 길이를 입력해주세요.\n");
-        return Integer.parseInt(reader.readLine());
+        try {
+            return Integer.parseInt(reader.readLine());
+        } catch (NumberFormatException e) {
+            throw CustomExceptions.INVALID_BRIDGE_SIZE.get();
+        }
     }
 
     public Move readMoving() {

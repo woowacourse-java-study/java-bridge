@@ -6,6 +6,10 @@ public enum CustomExceptions {
 			"유효하지 않은 움직임입니다.",
 			IllegalArgumentException.class
 	),
+	INVALID_BRIDGE_SIZE(
+			"유효하지 않은 다리길이입니다..",
+			IllegalArgumentException.class
+	),
 	INVALID_STEP(
 			"유효하지 않은 다리단계입니다.",
 			IllegalArgumentException.class
