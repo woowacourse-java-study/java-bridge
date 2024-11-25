@@ -6,6 +6,14 @@ public enum CustomExceptions {
 			"유효하지 않은 움직임입니다.",
 			IllegalArgumentException.class
 	),
+	INVALID_STEP(
+			"유효하지 않은 다리단계입니다.",
+			IllegalArgumentException.class
+	),
+	INVALID_RESTART(
+			"유효하지 않은 재시작입니다.",
+			IllegalArgumentException.class
+	),
 	;
 	
 	private final String message;

@@ -28,7 +28,7 @@ public enum Step {
 				.map(str -> Arrays.stream(Step.values())
 						.filter(step -> step.value.equals(str))
 						.findFirst()
-						.orElseThrow(CustomExceptions.INVALID_MOVE::get))
+						.orElseThrow(CustomExceptions.INVALID_STEP::get))
 				.collect(Collectors.toList());
 	}
 	
