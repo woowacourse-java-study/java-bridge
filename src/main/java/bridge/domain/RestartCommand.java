@@ -22,4 +22,8 @@ public enum RestartCommand {
 				.findFirst()
 				.orElseThrow(CustomExceptions.INVALID_RESTART::get);
 	}
+	
+	public boolean shouldRestart() {
+		return this == RESTART;
+	}
 }

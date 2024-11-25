@@ -42,6 +42,7 @@ public class MoveStatus {
 		return stringBuilder.append(upStringJoiner)
 				.append("\n")
 				.append(downStringJoiner)
+				.append("\n")
 				.toString();
 	}
 }

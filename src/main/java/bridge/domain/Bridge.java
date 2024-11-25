@@ -21,4 +21,8 @@ public class Bridge {
 		Step currentStep = steps.get(position);
 		return new MoveResult(position, move, currentStep.isValid(move));
 	}
+	
+	public boolean isBridgeEnd(int currentPosition) {
+		return steps.size() <= currentPosition;
+	}
 }

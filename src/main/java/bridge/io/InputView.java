@@ -1,5 +1,7 @@
 package bridge.io;
 
+import bridge.domain.Move;
+import bridge.domain.RestartCommand;
 import bridge.io.reader.Reader;
 import bridge.io.writer.Writer;
 
@@ -18,13 +20,13 @@ public class InputView {
         return Integer.parseInt(reader.readLine());
     }
 
-    public String readMoving() {
+    public Move readMoving() {
         writer.write("이동할 칸을 선택해주세요. (위: U, 아래: D)\n");
-        return reader.readLine();
+        return Move.from(reader.readLine());
     }
 
-    public String readGameCommand() {
+    public RestartCommand readGameCommand() {
         writer.write("게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)");
-        return reader.readLine();
+        return RestartCommand.from(reader.readLine());
     }
 }
