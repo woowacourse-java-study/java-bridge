@@ -1,13 +1,17 @@
-package bridge.service;
+package bridge.service.bridgeService;
 
 import bridge.domain.Bridge;
 import bridge.domain.BridgeGame;
 import bridge.domain.BridgeMaker;
 import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
 
-public class BridgeService {
+import java.util.function.Supplier;
+
+public class DefaultBridgeService implements BridgeService {
 	
-	public BridgeGame createBridgeGame(int bridgeSize) {
+	@Override
+	public BridgeGame createBridgeGame(Supplier<Integer> bridgeSizeSupplier) {
+		Integer bridgeSize = bridgeSizeSupplier.get();
 		BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
 		Bridge bridge = Bridge.from(bridgeSize, bridgeMaker);
 		return new BridgeGame(bridge);

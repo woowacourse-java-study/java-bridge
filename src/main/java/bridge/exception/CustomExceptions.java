@@ -18,6 +18,10 @@ public enum CustomExceptions {
 			"유효하지 않은 재시작입니다.",
 			IllegalArgumentException.class
 	),
+	OVER_MAX_RETRY_ATTEPMT(
+			"최대 재시도 횟수를 초과하였습니다.",
+			IllegalStateException.class
+	),
 	;
 	
 	private final String message;

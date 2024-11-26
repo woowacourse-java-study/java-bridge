@@ -5,7 +5,8 @@ import bridge.domain.vo.GameResult;
 import bridge.domain.vo.MoveResult;
 import bridge.io.InputView;
 import bridge.io.OutputView;
-import bridge.service.BridgeService;
+import bridge.service.bridgeService.BridgeService;
+import bridge.service.bridgeService.DefaultBridgeService;
 
 public class BridgeController implements Controller {
 	
@@ -22,9 +23,7 @@ public class BridgeController implements Controller {
 	@Override
 	public void run() {
 		outputView.printGreetings();
-		int bridgeSize = inputView.readBridgeSize();
-		
-		BridgeGame bridgeGame = bridgeService.createBridgeGame(bridgeSize);
+		BridgeGame bridgeGame = bridgeService.createBridgeGame(inputView::readBridgeSize);
 		MoveResult moveResult;
 		while(true) {
 			Move move = inputView.readMoving();
