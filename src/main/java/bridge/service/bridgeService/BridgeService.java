@@ -1,13 +1,18 @@
 package bridge.service.bridgeService;
 
-import bridge.domain.Bridge;
-import bridge.domain.BridgeGame;
-import bridge.domain.BridgeMaker;
-import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
+import bridge.domain.*;
+import bridge.domain.vo.MoveResult;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public interface BridgeService {
 	
 	BridgeGame createBridgeGame(Supplier<Integer> bridgeSizeSupplier);
+	
+	MoveResult playOneStep(
+			BridgeGame bridgeGame,
+			Supplier<Move> moveSupplier,
+			Consumer<MoveResult> moveResultConsumer
+	);
 }

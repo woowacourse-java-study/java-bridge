@@ -26,9 +26,7 @@ public class BridgeController implements Controller {
 		BridgeGame bridgeGame = bridgeService.createBridgeGame(inputView::readBridgeSize);
 		MoveResult moveResult;
 		while(true) {
-			Move move = inputView.readMoving();
-			moveResult = bridgeGame.move(move);
-			outputView.printMap(moveResult);
+			moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoving, outputView::printMap);
 			
 			if (moveResult.isFail()) {
 				RestartCommand restartCommand = inputView.readGameCommand();
