@@ -1,6 +1,4 @@
-package bridge.domain;
-
-import bridge.dto.MoveResult;
+package bridge.domain.vo;
 
 import java.util.List;
 import java.util.StringJoiner;

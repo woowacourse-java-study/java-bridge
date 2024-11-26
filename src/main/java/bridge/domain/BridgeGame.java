@@ -1,6 +1,8 @@
 package bridge.domain;
 
-import bridge.dto.MoveResult;
+import bridge.domain.vo.GameResult;
+import bridge.domain.vo.MoveResult;
+import bridge.domain.vo.MoveStatus;
 
 import java.util.ArrayList;
 import java.util.List;

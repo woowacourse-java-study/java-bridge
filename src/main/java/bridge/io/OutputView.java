@@ -1,7 +1,7 @@
 package bridge.io;
 
-import bridge.domain.GameResult;
-import bridge.domain.MoveStatus;
+import bridge.domain.vo.GameResult;
+import bridge.domain.vo.MoveStatus;
 import bridge.io.writer.Writer;
 
 public class OutputView {

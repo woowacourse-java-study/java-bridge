@@ -1,6 +1,6 @@
 package bridge.domain;
 
-import bridge.dto.MoveResult;
+import bridge.domain.vo.MoveResult;
 import bridge.exception.CustomExceptions;
 
 import java.util.List;

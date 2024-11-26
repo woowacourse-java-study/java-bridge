@@ -1,4 +1,4 @@
-package bridge.dto;
+package bridge.domain.vo;
 
 import bridge.domain.Move;
 
