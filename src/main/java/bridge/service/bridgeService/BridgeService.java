@@ -15,4 +15,6 @@ public interface BridgeService {
 			Supplier<Move> moveSupplier,
 			Consumer<MoveResult> moveResultConsumer
 	);
+	
+	boolean restartPlay(BridgeGame bridgeGame, Supplier<RestartCommand> restartCommandSupplier);
 }

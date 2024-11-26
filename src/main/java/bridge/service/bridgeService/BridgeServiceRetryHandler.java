@@ -28,4 +28,9 @@ public class BridgeServiceRetryHandler implements BridgeService {
 	public MoveResult playOneStep(BridgeGame bridgeGame, Supplier<Move> moveSupplier, Consumer<MoveResult> moveResultConsumer) {
 		return retryHandler.tryUntilSuccess(() -> bridgeService.playOneStep(bridgeGame, moveSupplier, moveResultConsumer));
 	}
+	
+	@Override
+	public boolean restartPlay(BridgeGame bridgeGame, Supplier<RestartCommand> restartCommandSupplier) {
+		return retryHandler.tryUntilSuccess(() -> bridgeService.restartPlay(bridgeGame, restartCommandSupplier));
+	}
 }

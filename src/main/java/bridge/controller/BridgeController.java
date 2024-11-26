@@ -32,11 +32,8 @@ public class BridgeController implements Controller {
 		while(!bridgeGame.isBridgeGameSuccess()) {
 			MoveResult moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoving, outputView::printMap);
 			
-			if (moveResult.isFail()) {
-				if (!inputView.readGameCommand().isRestart()) {
-					break;
-				}
-				bridgeGame.restart();
+			if (moveResult.isFail() && !bridgeService.restartPlay(bridgeGame, inputView::readGameCommand)) {
+				break;
 			}
 		}
 	}

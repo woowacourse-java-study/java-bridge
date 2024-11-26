@@ -1,9 +1,6 @@
 package bridge.service.bridgeService;
 
-import bridge.domain.Bridge;
-import bridge.domain.BridgeGame;
-import bridge.domain.BridgeMaker;
-import bridge.domain.Move;
+import bridge.domain.*;
 import bridge.domain.vo.MoveResult;
 import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
 
@@ -26,5 +23,15 @@ public class DefaultBridgeService implements BridgeService {
 		MoveResult moveResult = bridgeGame.move(move);
 		moveResultConsumer.accept(moveResult);
 		return moveResult;
+	}
+	
+	@Override
+	public boolean restartPlay(BridgeGame bridgeGame, Supplier<RestartCommand> restartCommandSupplier) {
+		RestartCommand restartCommand = restartCommandSupplier.get();
+		if (restartCommand.isRestart()) {
+			bridgeGame.restart();
+			return true;
+		}
+		return false;
 	}
 }
