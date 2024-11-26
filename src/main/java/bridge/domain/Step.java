@@ -21,7 +21,7 @@ public enum Step {
 	}
 	
 	public static Step from(int value) {
-		if (value == 0) return UP_VALID;
+		if (value == 1) return UP_VALID;
 		return DOWN_VALID;
 	}
 	
