@@ -2,20 +2,24 @@ package bridge.exception;
 
 public enum CustomExceptions {
 	
-	INVALID_MOVE(
-			"유효하지 않은 움직임입니다.",
-			IllegalArgumentException.class
-	),
 	INVALID_BRIDGE_SIZE(
-			"유효하지 않은 다리길이입니다.",
+			"유효하지 않은 다리길이 포맷입니다.",
 			IllegalArgumentException.class
 	),
-	INVALID_STEP(
-			"유효하지 않은 다리단계입니다.",
+	ILLEGAL_BRIDGE_SIZE(
+			"다리길이는 3이상 20 사이의 숫자여야 합니다.",
 			IllegalArgumentException.class
 	),
-	INVALID_RESTART(
-			"유효하지 않은 재시작입니다.",
+	ILLEGAL_MOVE(
+			"움직임은 U또는 D만 가능합니다.",
+			IllegalArgumentException.class
+	),
+	ILLEGAL_STEP(
+			"다리 단계는 U또는 D만 가능합니다.",
+			IllegalArgumentException.class
+	),
+	ILLEGAL_RESTART(
+			"재시작은 R또는 Q만 가능합니다.",
 			IllegalArgumentException.class
 	),
 	OVER_MAX_RETRY_ATTEPMT(

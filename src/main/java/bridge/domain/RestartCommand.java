@@ -20,7 +20,7 @@ public enum RestartCommand {
 		return Arrays.stream(RestartCommand.values())
 				.filter(restartCommand -> restartCommand.inputValue.equals(input))
 				.findFirst()
-				.orElseThrow(CustomExceptions.INVALID_RESTART::get);
+				.orElseThrow(CustomExceptions.ILLEGAL_RESTART::get);
 	}
 	
 	public boolean isRestart() {

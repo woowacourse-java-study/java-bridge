@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Bridge {
 	
 	private static final int MIN_STEP_SIZE = 3;
-	private static final int MAX_STEP_SIZE = 8;
+	private static final int MAX_STEP_SIZE = 20;
 	
 	private final List<Step> steps;
 	
@@ -21,7 +21,7 @@ public class Bridge {
 	
 	private static void validate(List<Step> steps) {
 		if (steps.size() < MIN_STEP_SIZE || steps.size() > MAX_STEP_SIZE) {
-			throw CustomExceptions.INVALID_BRIDGE_SIZE.get();
+			throw CustomExceptions.ILLEGAL_BRIDGE_SIZE.get();
 		}
 	}
 	
