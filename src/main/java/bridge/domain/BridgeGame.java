@@ -12,16 +12,14 @@ public class BridgeGame {
     private final Bridge bridge;
     private final List<StepResult> stepResults = new ArrayList<>();
     private int currentPosition = 0;
-    private int tryCount = 0;
+    private int tryCount = 1;
     
     public BridgeGame(Bridge bridge) {
         this.bridge = bridge;
     }
     
     public MoveResult move(Move move) {
-        stepResults.add(bridge.move(currentPosition, move));
-        tryCount++;
-        currentPosition++;
+        stepResults.add(bridge.move(currentPosition++, move));
         return new MoveResult(stepResults);
     }
     
@@ -31,6 +29,7 @@ public class BridgeGame {
     
     public void restart() {
         currentPosition = 0;
+        tryCount++;
         stepResults.clear();
     }
     
