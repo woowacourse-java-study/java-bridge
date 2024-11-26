@@ -2,13 +2,17 @@ package bridge.service.bridgeService;
 
 import bridge.domain.*;
 import bridge.domain.vo.MoveResult;
+import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public interface BridgeService {
 	
-	BridgeGame createBridgeGame(Supplier<Integer> bridgeSizeSupplier);
+	BridgeGame createBridgeGame(
+			BridgeNumberGenerator bridgeNumberGenerator,
+			Supplier<Integer> bridgeSizeSupplier
+	);
 	
 	MoveResult playOneStep(
 			BridgeGame bridgeGame,

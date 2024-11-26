@@ -5,6 +5,7 @@ import bridge.domain.vo.GameResult;
 import bridge.domain.vo.MoveResult;
 import bridge.io.InputView;
 import bridge.io.OutputView;
+import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 import bridge.service.bridgeService.BridgeService;
 
 public class BridgeController implements Controller {
@@ -12,17 +13,19 @@ public class BridgeController implements Controller {
 	private final InputView inputView;
 	private final OutputView outputView;
 	private final BridgeService bridgeService;
+	private final BridgeNumberGenerator bridgeNumberGenerator;
 	
-	public BridgeController(InputView inputView, OutputView outputView, BridgeService bridgeService) {
+	public BridgeController(InputView inputView, OutputView outputView, BridgeService bridgeService, BridgeNumberGenerator bridgeNumberGenerator) {
 		this.inputView = inputView;
 		this.outputView = outputView;
 		this.bridgeService = bridgeService;
+		this.bridgeNumberGenerator = bridgeNumberGenerator;
 	}
 	
 	@Override
 	public void run() {
 		outputView.printGreetings();
-		BridgeGame bridgeGame = bridgeService.createBridgeGame(inputView::readBridgeSize);
+		BridgeGame bridgeGame = bridgeService.createBridgeGame(bridgeNumberGenerator, inputView::readBridgeSize);
 		playBridgeGame(bridgeGame);
 		GameResult gameResult = bridgeGame.getGameResult();
 		outputView.printResult(gameResult);

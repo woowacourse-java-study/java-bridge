@@ -2,7 +2,7 @@ package bridge.service.bridgeService;
 
 import bridge.domain.*;
 import bridge.domain.vo.MoveResult;
-import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
+import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -10,9 +10,9 @@ import java.util.function.Supplier;
 public class DefaultBridgeService implements BridgeService {
 	
 	@Override
-	public BridgeGame createBridgeGame(Supplier<Integer> bridgeSizeSupplier) {
+	public BridgeGame createBridgeGame(BridgeNumberGenerator bridgeNumberGenerator, Supplier<Integer> bridgeSizeSupplier) {
 		Integer bridgeSize = bridgeSizeSupplier.get();
-		BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+		BridgeMaker bridgeMaker = new BridgeMaker(bridgeNumberGenerator);
 		Bridge bridge = Bridge.from(bridgeSize, bridgeMaker);
 		return new BridgeGame(bridge);
 	}

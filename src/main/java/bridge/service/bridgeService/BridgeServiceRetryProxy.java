@@ -4,24 +4,25 @@ import bridge.domain.BridgeGame;
 import bridge.domain.Move;
 import bridge.domain.RestartCommand;
 import bridge.domain.vo.MoveResult;
+import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 import bridge.service.retryHandler.RetryHandler;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class BridgeServiceRetryHandler implements BridgeService {
+public class BridgeServiceRetryProxy implements BridgeService {
 	
 	private final BridgeService bridgeService;
 	private final RetryHandler retryHandler;
 	
-	public BridgeServiceRetryHandler(BridgeService bridgeService, RetryHandler retryHandler) {
+	public BridgeServiceRetryProxy(BridgeService bridgeService, RetryHandler retryHandler) {
 		this.bridgeService = bridgeService;
 		this.retryHandler = retryHandler;
 	}
 	
 	@Override
-	public BridgeGame createBridgeGame(Supplier<Integer> bridgeSizeSupplier) {
-		return retryHandler.tryUntilSuccess(() -> bridgeService.createBridgeGame(bridgeSizeSupplier));
+	public BridgeGame createBridgeGame(BridgeNumberGenerator bridgeNumberGenerator, Supplier<Integer> bridgeSizeSupplier) {
+		return retryHandler.tryUntilSuccess(() -> bridgeService.createBridgeGame(bridgeNumberGenerator, bridgeSizeSupplier));
 	}
 	
 	@Override
