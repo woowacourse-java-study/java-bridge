@@ -21,7 +21,7 @@ public class Bridge {
 	
 	private static void validate(List<Step> steps) {
 		if (steps.size() < MIN_STEP_SIZE || steps.size() > MAX_STEP_SIZE) {
-			throw CustomExceptions.ILLEGAL_BRIDGE_SIZE.get();
+			throw CustomExceptions.ILLEGAL_BRIDGE_SIZE.get(MIN_STEP_SIZE, MAX_STEP_SIZE);
 		}
 	}
 	

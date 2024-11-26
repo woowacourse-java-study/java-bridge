@@ -7,19 +7,19 @@ public enum CustomExceptions {
 			IllegalArgumentException.class
 	),
 	ILLEGAL_BRIDGE_SIZE(
-			"다리길이는 3이상 20 사이의 숫자여야 합니다.",
+			"다리길이는 %d부터 %d 사이의 숫자여야 합니다.",
 			IllegalArgumentException.class
 	),
 	ILLEGAL_MOVE(
-			"움직임은 U또는 D만 가능합니다.",
+			"움직임은 %s또는 %s만 가능합니다.",
 			IllegalArgumentException.class
 	),
 	ILLEGAL_STEP(
-			"다리 단계는 U또는 D만 가능합니다.",
+			"다리 단계는 %s또는 %s만 가능합니다.",
 			IllegalArgumentException.class
 	),
 	ILLEGAL_RESTART(
-			"재시작은 R또는 Q만 가능합니다.",
+			"재시작은 %s또는 %s만 가능합니다.",
 			IllegalArgumentException.class
 	),
 	OVER_MAX_RETRY_ATTEPMT(
@@ -36,9 +36,9 @@ public enum CustomExceptions {
 		this.exceptionType = exceptionType;
 	}
 	
-	public RuntimeException get() {
+	public RuntimeException get(Object... args) {
 		try {
-			return exceptionType.getDeclaredConstructor(String.class).newInstance(message);
+			return exceptionType.getDeclaredConstructor(String.class).newInstance(message.formatted(args));
 		} catch (Exception e) {
 			return new RuntimeException(message);
 		}

@@ -20,6 +20,6 @@ public enum Move {
 		return Arrays.stream(Move.values())
 				.filter(move -> move.inputValue.equals(value))
 				.findFirst()
-				.orElseThrow(CustomExceptions.ILLEGAL_MOVE::get);
+				.orElseThrow(() -> CustomExceptions.ILLEGAL_MOVE.get(UP_MOVE.inputValue, DOWN_MOVE.inputValue));
 	}
 }

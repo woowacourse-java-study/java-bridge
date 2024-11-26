@@ -30,7 +30,7 @@ public enum Step {
 				.map(str -> Arrays.stream(Step.values())
 						.filter(step -> step.value.equals(str))
 						.findFirst()
-						.orElseThrow(CustomExceptions.ILLEGAL_STEP::get))
+						.orElseThrow(() -> CustomExceptions.ILLEGAL_STEP.get(UP_VALID.value, DOWN_VALID.value)))
 				.collect(Collectors.toList());
 	}
 	
