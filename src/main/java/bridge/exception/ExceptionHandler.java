@@ -4,7 +4,7 @@ import bridge.io.writer.Writer;
 
 public class ExceptionHandler {
 	
-	private static final String EXCEPTION_MESSAGE_FORMAT = "[ERROR] %s\n";
+	private static final String EXCEPTION_MESSAGE_FORMAT = "\n[ERROR] %s\n";
 	
 	private final Writer writer;
 	

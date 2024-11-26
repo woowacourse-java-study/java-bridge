@@ -7,7 +7,7 @@ public enum CustomExceptions {
 			IllegalArgumentException.class
 	),
 	INVALID_BRIDGE_SIZE(
-			"유효하지 않은 다리길이입니다..",
+			"유효하지 않은 다리길이입니다.",
 			IllegalArgumentException.class
 	),
 	INVALID_STEP(
