@@ -2,7 +2,7 @@ package bridge.controller;
 
 import bridge.domain.*;
 import bridge.domain.vo.GameResult;
-import bridge.domain.vo.MoveStatus;
+import bridge.domain.vo.MoveResult;
 import bridge.io.InputView;
 import bridge.io.OutputView;
 import bridge.service.bridgeNumberGenerator.BridgeRandomNumberGenerator;
@@ -25,13 +25,13 @@ public class BridgeController implements Controller {
 		Bridge bridge = Bridge.from(bridgeSize, bridgeMaker);
 		BridgeGame bridgeGame = new BridgeGame(bridge);
 		
-		MoveStatus moveStatus;
+		MoveResult moveResult;
 		while(true) {
 			Move move = inputView.readMoving();
-			moveStatus = bridgeGame.move(move);
-			outputView.printMap(moveStatus);
+			moveResult = bridgeGame.move(move);
+			outputView.printMap(moveResult);
 			
-			if (moveStatus.isFail()) {
+			if (moveResult.isFail()) {
 				RestartCommand restartCommand = inputView.readGameCommand();
 				if (restartCommand.shouldRestart()) {
 					bridgeGame.retry();
@@ -45,7 +45,7 @@ public class BridgeController implements Controller {
 			}
 		}
 		
-		GameResult gameResult = bridgeGame.getGameResult(moveStatus);
+		GameResult gameResult = bridgeGame.getGameResult(moveResult);
 		outputView.printResult(gameResult);
 	}
 }

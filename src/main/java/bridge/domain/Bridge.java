@@ -1,6 +1,6 @@
 package bridge.domain;
 
-import bridge.domain.vo.MoveResult;
+import bridge.domain.vo.StepResult;
 import bridge.exception.CustomExceptions;
 
 import java.util.List;
@@ -30,9 +30,9 @@ public class Bridge {
 		return new Bridge(Step.fromList(brigeValue));
 	}
 	
-	public MoveResult move(int position, Move move) {
+	public StepResult move(int position, Move move) {
 		Step currentStep = steps.get(position);
-		return new MoveResult(position, move, currentStep.isValid(move));
+		return new StepResult(position, move, currentStep.isValid(move));
 	}
 	
 	public boolean isBridgeEnd(int currentPosition) {

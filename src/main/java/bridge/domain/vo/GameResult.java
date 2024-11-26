@@ -2,16 +2,16 @@ package bridge.domain.vo;
 
 public class GameResult {
 	
-	private final MoveStatus moveStatus;
+	private final MoveResult moveResult;
 	private final int totalTryCount;
 	
-	public GameResult(MoveStatus moveStatus, int totalTryCount) {
-		this.moveStatus = moveStatus;
+	public GameResult(MoveResult moveResult, int totalTryCount) {
+		this.moveResult = moveResult;
 		this.totalTryCount = totalTryCount;
 	}
 	
-	public MoveStatus getMoveStatus() {
-		return moveStatus;
+	public MoveResult getMoveStatus() {
+		return moveResult;
 	}
 	
 	public int getTotalTryCount() {

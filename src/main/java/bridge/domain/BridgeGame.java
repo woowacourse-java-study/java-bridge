@@ -1,8 +1,8 @@
 package bridge.domain;
 
 import bridge.domain.vo.GameResult;
+import bridge.domain.vo.StepResult;
 import bridge.domain.vo.MoveResult;
-import bridge.domain.vo.MoveStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class BridgeGame {
     
     private final Bridge bridge;
-    private final List<MoveResult> moveResults = new ArrayList<>();
+    private final List<StepResult> stepResults = new ArrayList<>();
     private int currentPosition = 0;
     private int tryCount = 0;
     
@@ -18,9 +18,9 @@ public class BridgeGame {
         this.bridge = bridge;
     }
     
-    public MoveStatus move(Move move) {
-        moveResults.add(bridge.move(currentPosition++, move));
-        return new MoveStatus(moveResults, ++tryCount);
+    public MoveResult move(Move move) {
+        stepResults.add(bridge.move(currentPosition++, move));
+        return new MoveResult(stepResults, ++tryCount);
     }
     
     public boolean isBridgeGameSuccess() {
@@ -29,10 +29,10 @@ public class BridgeGame {
     
     public void retry() {
         currentPosition = 0;
-        moveResults.clear();
+        stepResults.clear();
     }
     
-    public GameResult getGameResult(MoveStatus moveStatus) {
-        return new GameResult(moveStatus, tryCount);
+    public GameResult getGameResult(MoveResult moveResult) {
+        return new GameResult(moveResult, tryCount);
     }
 }

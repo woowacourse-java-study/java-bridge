@@ -1,37 +1,46 @@
 package bridge.domain.vo;
 
-import bridge.domain.Move;
+import java.util.List;
+import java.util.StringJoiner;
 
-public class MoveResult implements Comparable<MoveResult> {
+public class MoveResult {
 	
-	private final int step;
-	private final Move move;
-	private final boolean isSuccess;
+	private final List<StepResult> stepResults;
+	private final int tryCount;
 	
-	public MoveResult(int step, Move move, boolean isSuccess) {
-		this.step = step;
-		this.move = move;
-		this.isSuccess = isSuccess;
+	public MoveResult(List<StepResult> stepResults, int tryCount) {
+		this.stepResults = stepResults;
+		this.tryCount = tryCount;
 	}
 	
-	public boolean isSuccess() {
-		return isSuccess;
+	public boolean isFail() {
+		for (StepResult stepResult : stepResults) {
+			if (!stepResult.isSuccess()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int getTryCount() {
+		return tryCount;
 	}
 	
 	@Override
-	public int compareTo(MoveResult o) {
-		return this.step - o.step;
-	}
-	
-	public String getUpString() {
-		if (move == Move.DOWN_MOVE) return "   ";
-		if (!isSuccess) return " X ";
-		return " O ";
-	}
-	
-	public String getDownString() {
-		if (move == Move.UP_MOVE) return "   ";
-		if (!isSuccess) return " X ";
-		return " O ";
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		StringJoiner upStringJoiner = new StringJoiner("|", "[", "]");
+		StringJoiner downStringJoiner = new StringJoiner("|", "[", "]");
+		
+		stepResults.forEach(stepResult -> {
+			upStringJoiner.add(stepResult.getUpString());
+			downStringJoiner.add(stepResult.getDownString());
+		});
+		
+		return stringBuilder.append(upStringJoiner)
+				.append("\n")
+				.append(downStringJoiner)
+				.append("\n")
+				.toString();
 	}
 }

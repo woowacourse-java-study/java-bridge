@@ -1,7 +1,7 @@
 package bridge.io;
 
 import bridge.domain.vo.GameResult;
-import bridge.domain.vo.MoveStatus;
+import bridge.domain.vo.MoveResult;
 import bridge.io.writer.Writer;
 
 public class OutputView {
@@ -16,8 +16,8 @@ public class OutputView {
         writer.write("다리 건너기 게임을 시작합니다.\n");
     }
     
-    public void printMap(MoveStatus moveStatus) {
-        writer.write(moveStatus.toString());
+    public void printMap(MoveResult moveResult) {
+        writer.write(moveResult.toString());
     }
 
     public void printResult(GameResult gameResult) {
