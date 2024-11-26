@@ -19,20 +19,22 @@ public class BridgeGame {
     }
     
     public MoveResult move(Move move) {
-        stepResults.add(bridge.move(currentPosition++, move));
-        return new MoveResult(stepResults, ++tryCount);
+        stepResults.add(bridge.move(currentPosition, move));
+        tryCount++;
+        currentPosition++;
+        return new MoveResult(stepResults);
     }
     
     public boolean isBridgeGameSuccess() {
         return bridge.isBridgeEnd(currentPosition);
     }
     
-    public void retry() {
+    public void restart() {
         currentPosition = 0;
         stepResults.clear();
     }
     
-    public GameResult getGameResult(MoveResult moveResult) {
-        return new GameResult(moveResult, tryCount);
+    public GameResult getGameResult() {
+        return new GameResult(new MoveResult(stepResults), tryCount);
     }
 }

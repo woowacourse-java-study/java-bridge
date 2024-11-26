@@ -23,7 +23,7 @@ public enum RestartCommand {
 				.orElseThrow(CustomExceptions.INVALID_RESTART::get);
 	}
 	
-	public boolean shouldRestart() {
+	public boolean isRestart() {
 		return this == RESTART;
 	}
 }

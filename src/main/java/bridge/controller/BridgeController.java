@@ -6,7 +6,6 @@ import bridge.domain.vo.MoveResult;
 import bridge.io.InputView;
 import bridge.io.OutputView;
 import bridge.service.bridgeService.BridgeService;
-import bridge.service.bridgeService.DefaultBridgeService;
 
 public class BridgeController implements Controller {
 	
@@ -24,25 +23,21 @@ public class BridgeController implements Controller {
 	public void run() {
 		outputView.printGreetings();
 		BridgeGame bridgeGame = bridgeService.createBridgeGame(inputView::readBridgeSize);
-		MoveResult moveResult;
-		while(true) {
-			moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoving, outputView::printMap);
+		playBridgeGame(bridgeGame);
+		GameResult gameResult = bridgeGame.getGameResult();
+		outputView.printResult(gameResult);
+	}
+	
+	private void playBridgeGame(BridgeGame bridgeGame) {
+		while(!bridgeGame.isBridgeGameSuccess()) {
+			MoveResult moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoving, outputView::printMap);
 			
 			if (moveResult.isFail()) {
-				RestartCommand restartCommand = inputView.readGameCommand();
-				if (restartCommand.shouldRestart()) {
-					bridgeGame.retry();
-					continue;
+				if (!inputView.readGameCommand().isRestart()) {
+					break;
 				}
-				break;
-			}
-			
-			if (bridgeGame.isBridgeGameSuccess()) {
-				break;
+				bridgeGame.restart();
 			}
 		}
-		
-		GameResult gameResult = bridgeGame.getGameResult(moveResult);
-		outputView.printResult(gameResult);
 	}
 }
