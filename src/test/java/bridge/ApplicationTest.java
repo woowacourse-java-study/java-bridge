@@ -78,6 +78,20 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
+    void 다리_길이를_잘못_입력한_후_다시_입력_받는다() {
+        assertRandomNumberInRangeTest(() -> {
+            run("a", "3", "U", "U", "Q");
+            assertThat(output()).contains(
+                    "최종 게임 결과",
+                    "[ O | X ]",
+                    "[   |   ]",
+                    "게임 성공 여부: 실패",
+                    "총 시도한 횟수: 1"
+            );
+        }, 1, 0, 1);
+    }
+    
+    @Test
     void 다리_길이를_짧게_입력한다() {
         assertSimpleTest(() -> {
             runException("2");
@@ -102,9 +116,31 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
+    void 움직임을_잘못_입력한_후_다시_입력받는다() {
+        assertRandomNumberInRangeTest(() -> {
+            run("3", "a", "U", "U", "Q");
+            assertThat(output()).contains(
+                    "최종 게임 결과",
+                    "[ O | X ]",
+                    "[   |   ]",
+                    "게임 성공 여부: 실패",
+                    "총 시도한 횟수: 1"
+            );
+        }, 1, 0, 1);
+    }
+    
+    @Test
     void 재시도를_잘못_입력한다() {
         assertRandomNumberInRangeTest(() -> {
             runException("3", "U", "U", "a");
+            assertThat(output()).contains(ERROR_MESSAGE);
+        }, 1, 0, 1);
+    }
+    
+    @Test
+    void 재시도를_잘못_입력한_후_다시_입력받는다() {
+        assertRandomNumberInRangeTest(() -> {
+            run("3", "U", "U", "a", "Q");
             assertThat(output()).contains(ERROR_MESSAGE);
         }, 1, 0, 1);
     }
