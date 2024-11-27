@@ -6,6 +6,14 @@ public enum CustomExceptions {
 			"유효하지 않은 다리길이 포맷입니다.",
 			IllegalArgumentException.class
 	),
+	INVALID_MOVE(
+			"유효하지 않은 움직임 포맷입니다.",
+			IllegalArgumentException.class
+	),
+	INVALID_RESTART(
+			"유효하지 않은 재시작 포맷입니다.",
+			IllegalArgumentException.class
+	),
 	ILLEGAL_BRIDGE_SIZE(
 			"다리길이는 %d부터 %d 사이의 숫자여야 합니다.",
 			IllegalArgumentException.class
