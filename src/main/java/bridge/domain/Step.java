@@ -24,8 +24,8 @@ public enum Step {
 		return DOWN_VALID;
 	}
 	
-	public static List<Step> fromList(List<String> brigeValue) {
-		return brigeValue.stream()
+	public static List<Step> fromList(List<String> bridgeValue) {
+		return bridgeValue.stream()
 				.map(str -> Arrays.stream(Step.values())
 						.filter(step -> step.value.equals(str))
 						.findFirst()
