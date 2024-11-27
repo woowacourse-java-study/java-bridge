@@ -6,6 +6,7 @@ import bridge.common.dto.MoveResult;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BridgeGame {
     
@@ -15,6 +16,7 @@ public class BridgeGame {
     private int tryCount = 1;
     
     public BridgeGame(Bridge bridge) {
+        Objects.requireNonNull(bridge);
         this.bridge = bridge;
     }
     

@@ -4,12 +4,14 @@ import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BridgeMaker {
     
     private final BridgeNumberGenerator bridgeNumberGenerator;
     
     public BridgeMaker(BridgeNumberGenerator bridgeNumberGenerator) {
+        Objects.requireNonNull(bridgeNumberGenerator);
         this.bridgeNumberGenerator = bridgeNumberGenerator;
     }
     
