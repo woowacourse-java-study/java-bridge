@@ -19,20 +19,27 @@ public record MoveResult(
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		StringJoiner upStringJoiner = new StringJoiner("|", "[", "]");
-		StringJoiner downStringJoiner = new StringJoiner("|", "[", "]");
-		
-		stepResults.stream()
-				.sorted()
-				.forEach(stepResult -> {
-			upStringJoiner.add(stepResult.getUpString());
-			downStringJoiner.add(stepResult.getDownString());
-		});
-		
-		return stringBuilder.append(upStringJoiner)
+		return stringBuilder
+				.append(getUpString(stepResults))
 				.append("\n")
-				.append(downStringJoiner)
+				.append(getDownString(stepResults))
 				.append("\n")
 				.toString();
+	}
+	
+	private static String getUpString(List<StepResult> stepResults) {
+		StringJoiner upStringJoiner = new StringJoiner("|", "[", "]");
+		stepResults.stream()
+				.sorted()
+				.forEach(stepResult -> upStringJoiner.add(stepResult.getUpString()));
+		return upStringJoiner.toString();
+	}
+	
+	private static String getDownString(List<StepResult> stepResults) {
+		StringJoiner downStringJoiner = new StringJoiner("|", "[", "]");
+		stepResults.stream()
+				.sorted()
+				.forEach(stepResult -> downStringJoiner.add(stepResult.getDownString()));
+		return downStringJoiner.toString();
 	}
 }

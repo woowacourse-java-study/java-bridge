@@ -27,17 +27,11 @@ public class BridgeApplication {
 	private static void initController() {
 		WriterConfig writerConfig = new DefaultWriterConfig();
 		ExceptionHandlerConfig exceptionHandlerConfig = new ExceptionHandlerConfig(writerConfig);
-		
-		InputViewConfig inputViewConfig = new InputViewConfig(new DefaultReaderConfig(), writerConfig);
-		OutputViewConfig outputViewConfig = new OutputViewConfig(writerConfig);
-		BridgeServiceConfig bridgeServiceConfig = new DefaultBridgeServiceConfig(exceptionHandlerConfig);
-		BridgeNumberGeneratorConfig numberGeneratorConfig = new DefaultBridgeNumberGeneratorConfig();
-		
 		controller = new DefaultBridgeControllerConfig(
-				inputViewConfig,
-				outputViewConfig,
-				bridgeServiceConfig,
-				numberGeneratorConfig,
+				new InputViewConfig(new DefaultReaderConfig(), writerConfig),
+				new OutputViewConfig(writerConfig),
+				new DefaultBridgeServiceConfig(exceptionHandlerConfig),
+				new DefaultBridgeNumberGeneratorConfig(),
 				exceptionHandlerConfig
 		).getController();
 	}
