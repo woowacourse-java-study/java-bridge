@@ -1,10 +1,10 @@
 package bridge.config.controller;
 
+import bridge.config.exceptionHandler.ExceptionHandlerConfig;
 import bridge.config.io.InputViewConfig;
 import bridge.config.io.OutputViewConfig;
 import bridge.config.service.bridgeNumberGenerator.BridgeNumberGeneratorConfig;
 import bridge.config.service.bridgeService.BridgeServiceConfig;
-import bridge.config.exceptionHandler.ExceptionHandlerConfig;
 import bridge.controller.BridgeController;
 import bridge.controller.Controller;
 import bridge.controller.ControllerExceptionHandleProxy;
@@ -16,7 +16,7 @@ public class DefaultBridgeControllerConfig implements ControllerConfig {
 	public DefaultBridgeControllerConfig(
 			InputViewConfig inputViewConfig,
 			OutputViewConfig outputViewConfig,
-			BridgeServiceConfig  bridgeServiceConfig,
+			BridgeServiceConfig bridgeServiceConfig,
 			BridgeNumberGeneratorConfig numberGeneratorConfig,
 			ExceptionHandlerConfig exceptionHandlerConfig
 	) {

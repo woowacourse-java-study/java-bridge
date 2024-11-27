@@ -1,9 +1,9 @@
 package bridge.service.bridgeService;
 
+import bridge.common.dto.MoveResult;
 import bridge.domain.BridgeGame;
 import bridge.domain.MoveCommand;
 import bridge.domain.RestartCommand;
-import bridge.common.dto.MoveResult;
 import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 import bridge.service.retryHandler.RetryHandler;
 

@@ -1,27 +1,23 @@
 package bridge.domain;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 class StepTest {
 	
 	@Nested
 	class 생성_테스트 {
-	
+		
 		@Test
 		void 숫자를_통해_위를_정상적으로_생성한다() {
-		    //given
-		    
-		    //when
+			//given
+			
+			//when
 			Step result = Step.from(1);
 			
 			//then

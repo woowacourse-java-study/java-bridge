@@ -1,13 +1,11 @@
 package bridge.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MoveCommandTest {
 	
@@ -17,9 +15,9 @@ class MoveCommandTest {
 		@ParameterizedTest
 		@ValueSource(strings = {"U, D"})
 		void 정상적으로_생성한다(String input) {
-		    //given
+			//given
 			
-		    //expected
+			//expected
 			assertThatCode(() -> MoveCommand.from(input))
 					.doesNotThrowAnyException();
 		}

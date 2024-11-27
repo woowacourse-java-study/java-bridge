@@ -7,9 +7,7 @@ import bridge.config.io.OutputViewConfig;
 import bridge.config.io.reader.DefaultReaderConfig;
 import bridge.config.io.writer.DefaultWriterConfig;
 import bridge.config.io.writer.WriterConfig;
-import bridge.config.service.bridgeNumberGenerator.BridgeNumberGeneratorConfig;
 import bridge.config.service.bridgeNumberGenerator.DefaultBridgeNumberGeneratorConfig;
-import bridge.config.service.bridgeService.BridgeServiceConfig;
 import bridge.config.service.bridgeService.DefaultBridgeServiceConfig;
 import bridge.controller.Controller;
 

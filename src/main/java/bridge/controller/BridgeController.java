@@ -1,8 +1,8 @@
 package bridge.controller;
 
-import bridge.domain.*;
 import bridge.common.dto.GameResult;
 import bridge.common.dto.MoveResult;
+import bridge.domain.BridgeGame;
 import bridge.io.input.InputView;
 import bridge.io.output.OutputView;
 import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
@@ -32,7 +32,7 @@ public class BridgeController implements Controller {
 	}
 	
 	private void playBridgeGame(BridgeGame bridgeGame) {
-		while(!bridgeGame.isBridgeGameSuccess()) {
+		while (!bridgeGame.isBridgeGameSuccess()) {
 			MoveResult moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoveCommand, outputView::printMap);
 			
 			if (moveResult.isFail() && !bridgeService.restartPlay(bridgeGame, inputView::readGameCommand)) {

@@ -9,11 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.util.Lists.newArrayList;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BridgeTest {
 	
@@ -70,12 +67,12 @@ class BridgeTest {
 		
 		@Test
 		void 정상적으로_움직여서_성공한다() {
-		    //given
+			//given
 			
 			//when
 			StepResult result = bridge.move(0, MoveCommand.UP_MOVE);
-		    
-		    //then
+			
+			//then
 			assertThat(result)
 					.extracting(
 							"step", "moveCommand", "isSuccess"
@@ -100,7 +97,7 @@ class BridgeTest {
 					);
 		}
 	}
-
+	
 	@Nested
 	class 다리_끝_확인_테스트 {
 		
@@ -116,9 +113,9 @@ class BridgeTest {
 		@ParameterizedTest
 		@ValueSource(ints = {3, 4, 5})
 		void 다리가_끝났음을_확인한다(int position) {
-		    //given
-		    
-		    //when
+			//given
+			
+			//when
 			boolean result = bridge.isBridgeEnd(position);
 			
 			//then
