@@ -13,7 +13,7 @@ public class Bridge {
 	
 	private final List<Step> steps;
 	
-	public Bridge(List<Step> steps) {
+	private Bridge(List<Step> steps) {
 		Objects.requireNonNull(steps);
 		validate(steps);
 		this.steps = steps;

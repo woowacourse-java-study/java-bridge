@@ -14,6 +14,6 @@ public class TestNumberGenerator implements BridgeNumberGenerator {
 	
 	@Override
 	public int generate() {
-		return numbers.removeFirst();
+		return numbers.remove(0);
 	}
 }
