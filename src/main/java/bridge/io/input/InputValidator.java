@@ -1,6 +1,6 @@
 package bridge.io.input;
 
-import bridge.exception.CustomExceptions;
+import bridge.common.exception.CustomExceptions;
 
 public class InputValidator {
 	

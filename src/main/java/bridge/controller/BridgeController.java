@@ -1,8 +1,8 @@
 package bridge.controller;
 
 import bridge.domain.*;
-import bridge.domain.vo.GameResult;
-import bridge.domain.vo.MoveResult;
+import bridge.common.dto.GameResult;
+import bridge.common.dto.MoveResult;
 import bridge.io.input.InputView;
 import bridge.io.output.OutputView;
 import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;

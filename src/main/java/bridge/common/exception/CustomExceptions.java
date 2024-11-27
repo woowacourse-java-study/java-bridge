@@ -1,4 +1,4 @@
-package bridge.exception;
+package bridge.common.exception;
 
 public enum CustomExceptions {
 	

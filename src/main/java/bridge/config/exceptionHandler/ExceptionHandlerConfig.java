@@ -1,7 +1,7 @@
 package bridge.config.exceptionHandler;
 
 import bridge.config.io.writer.WriterConfig;
-import bridge.exception.ExceptionHandler;
+import bridge.common.exception.ExceptionHandler;
 
 public class ExceptionHandlerConfig {
 	

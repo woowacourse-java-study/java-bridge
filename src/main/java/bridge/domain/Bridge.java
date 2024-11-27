@@ -1,7 +1,7 @@
 package bridge.domain;
 
-import bridge.domain.vo.StepResult;
-import bridge.exception.CustomExceptions;
+import bridge.common.dto.StepResult;
+import bridge.common.exception.CustomExceptions;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,7 +1,7 @@
 package bridge.io.output;
 
-import bridge.domain.vo.GameResult;
-import bridge.domain.vo.MoveResult;
+import bridge.common.dto.GameResult;
+import bridge.common.dto.MoveResult;
 
 public class OutputParser {
 	
@@ -10,17 +10,17 @@ public class OutputParser {
 	}
 	
 	public String parseFinalMoving(GameResult gameResult) {
-		return gameResult.getMoveStatus().toString();
+		return gameResult.moveResult().toString();
 	}
 	
 	public String parseSuccess(GameResult gameResult) {
-		if (gameResult.getMoveStatus().isFail()) {
+		if (gameResult.moveResult().isFail()) {
 			return "실패";
 		}
 		return "성공";
 	}
 	
 	public String parseTotalTryCount(GameResult gameResult) {
-		return String.valueOf(gameResult.getTotalTryCount());
+		return String.valueOf(gameResult.totalTryCount());
 	}
 }

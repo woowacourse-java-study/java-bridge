@@ -1,6 +1,6 @@
 package bridge.controller;
 
-import bridge.exception.ExceptionHandler;
+import bridge.common.exception.ExceptionHandler;
 
 public class ControllerExceptionHandleProxy implements Controller {
 	

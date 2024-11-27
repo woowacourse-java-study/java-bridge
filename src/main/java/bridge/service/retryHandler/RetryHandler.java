@@ -1,7 +1,7 @@
 package bridge.service.retryHandler;
 
-import bridge.exception.CustomExceptions;
-import bridge.exception.ExceptionHandler;
+import bridge.common.exception.CustomExceptions;
+import bridge.common.exception.ExceptionHandler;
 
 public class RetryHandler {
 

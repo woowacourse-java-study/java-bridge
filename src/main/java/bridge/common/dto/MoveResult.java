@@ -1,15 +1,11 @@
-package bridge.domain.vo;
+package bridge.common.dto;
 
 import java.util.List;
 import java.util.StringJoiner;
 
-public class MoveResult {
-	
-	private final List<StepResult> stepResults;
-	
-	public MoveResult(List<StepResult> stepResults) {
-		this.stepResults = stepResults;
-	}
+public record MoveResult(
+		List<StepResult> stepResults
+) {
 	
 	public boolean isFail() {
 		for (StepResult stepResult : stepResults) {
@@ -26,7 +22,9 @@ public class MoveResult {
 		StringJoiner upStringJoiner = new StringJoiner("|", "[", "]");
 		StringJoiner downStringJoiner = new StringJoiner("|", "[", "]");
 		
-		stepResults.forEach(stepResult -> {
+		stepResults.stream()
+				.sorted()
+				.forEach(stepResult -> {
 			upStringJoiner.add(stepResult.getUpString());
 			downStringJoiner.add(stepResult.getDownString());
 		});

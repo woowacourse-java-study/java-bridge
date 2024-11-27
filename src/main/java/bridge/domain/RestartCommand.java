@@ -1,6 +1,6 @@
 package bridge.domain;
 
-import bridge.exception.CustomExceptions;
+import bridge.common.exception.CustomExceptions;
 
 import java.util.Arrays;
 

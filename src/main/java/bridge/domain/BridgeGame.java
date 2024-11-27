@@ -1,8 +1,8 @@
 package bridge.domain;
 
-import bridge.domain.vo.GameResult;
-import bridge.domain.vo.StepResult;
-import bridge.domain.vo.MoveResult;
+import bridge.common.dto.GameResult;
+import bridge.common.dto.StepResult;
+import bridge.common.dto.MoveResult;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package bridge.service.bridgeService;
 
 import bridge.domain.*;
-import bridge.domain.vo.MoveResult;
+import bridge.common.dto.MoveResult;
 import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
 
 import java.util.function.Consumer;
