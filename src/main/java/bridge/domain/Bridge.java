@@ -32,7 +32,7 @@ public class Bridge {
 	
 	public StepResult move(int position, MoveCommand moveCommand) {
 		Step currentStep = steps.get(position);
-		return new StepResult(position, moveCommand, currentStep.isValid(moveCommand));
+		return new StepResult(position, moveCommand, currentStep.isSuccess(moveCommand));
 	}
 	
 	public boolean isBridgeEnd(int currentPosition) {

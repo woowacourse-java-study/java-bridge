@@ -4,7 +4,6 @@ import bridge.common.exception.CustomExceptions;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public enum Step {
 	
@@ -38,7 +37,7 @@ public enum Step {
 		return value;
 	}
 	
-	public boolean isValid(MoveCommand moveCommand) {
+	public boolean isSuccess(MoveCommand moveCommand) {
 		return validMoveCommand == moveCommand;
 	}
 }
