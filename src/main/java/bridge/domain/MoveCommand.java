@@ -4,7 +4,7 @@ import bridge.common.exception.CustomExceptions;
 
 import java.util.Arrays;
 
-public enum Move {
+public enum MoveCommand {
 	
 	UP_MOVE("U"),
 	DOWN_MOVE("D"),
@@ -12,13 +12,13 @@ public enum Move {
 	
 	private final String inputValue;
 	
-	Move(String inputValue) {
+	MoveCommand(String inputValue) {
 		this.inputValue = inputValue;
 	}
 	
-	public static Move from(String value) {
-		return Arrays.stream(Move.values())
-				.filter(move -> move.inputValue.equals(value))
+	public static MoveCommand from(String input) {
+		return Arrays.stream(MoveCommand.values())
+				.filter(move -> move.inputValue.equals(input))
 				.findFirst()
 				.orElseThrow(() -> CustomExceptions.ILLEGAL_MOVE.get(UP_MOVE.inputValue, DOWN_MOVE.inputValue));
 	}

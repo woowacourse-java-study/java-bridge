@@ -8,16 +8,16 @@ import java.util.stream.Collectors;
 
 public enum Step {
 	
-	UP_VALID("U", Move.UP_MOVE),
-	DOWN_VALID("D", Move.DOWN_MOVE),
+	UP_VALID("U", MoveCommand.UP_MOVE),
+	DOWN_VALID("D", MoveCommand.DOWN_MOVE),
 	;
 	
 	private final String value;
-	private final Move validMove;
+	private final MoveCommand validMoveCommand;
 	
-	Step(String value, Move validMove) {
+	Step(String value, MoveCommand validMoveCommand) {
 		this.value = value;
-		this.validMove = validMove;
+		this.validMoveCommand = validMoveCommand;
 	}
 	
 	public static Step from(int value) {
@@ -31,14 +31,14 @@ public enum Step {
 						.filter(step -> step.value.equals(str))
 						.findFirst()
 						.orElseThrow(() -> CustomExceptions.ILLEGAL_STEP.get(UP_VALID.value, DOWN_VALID.value)))
-				.collect(Collectors.toList());
+				.toList();
 	}
 	
 	public String getValue() {
 		return value;
 	}
 	
-	public boolean isValid(Move move) {
-		return validMove == move;
+	public boolean isValid(MoveCommand moveCommand) {
+		return validMoveCommand == moveCommand;
 	}
 }

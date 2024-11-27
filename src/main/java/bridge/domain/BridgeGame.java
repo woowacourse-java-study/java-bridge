@@ -18,8 +18,8 @@ public class BridgeGame {
         this.bridge = bridge;
     }
     
-    public MoveResult move(Move move) {
-        stepResults.add(bridge.move(currentPosition++, move));
+    public MoveResult move(MoveCommand moveCommand) {
+        stepResults.add(bridge.move(currentPosition++, moveCommand));
         return new MoveResult(stepResults);
     }
     

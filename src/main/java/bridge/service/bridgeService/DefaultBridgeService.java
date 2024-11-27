@@ -18,9 +18,9 @@ public class DefaultBridgeService implements BridgeService {
 	}
 	
 	@Override
-	public MoveResult playOneStep(BridgeGame bridgeGame, Supplier<Move> moveSupplier, Consumer<MoveResult> moveResultConsumer) {
-		Move move = moveSupplier.get();
-		MoveResult moveResult = bridgeGame.move(move);
+	public MoveResult playOneStep(BridgeGame bridgeGame, Supplier<MoveCommand> moveSupplier, Consumer<MoveResult> moveResultConsumer) {
+		MoveCommand moveCommand = moveSupplier.get();
+		MoveResult moveResult = bridgeGame.move(moveCommand);
 		moveResultConsumer.accept(moveResult);
 		return moveResult;
 	}

@@ -1,6 +1,6 @@
 package bridge.io.input;
 
-import bridge.domain.Move;
+import bridge.domain.MoveCommand;
 import bridge.domain.RestartCommand;
 import bridge.io.reader.Reader;
 import bridge.io.writer.Writer;
@@ -26,11 +26,11 @@ public class InputView {
         return inputParser.parseBridgeSize(input);
     }
 
-    public Move readMoving() {
+    public MoveCommand readMoveCommand() {
         writer.write("\n이동할 칸을 선택해주세요. (위: U, 아래: D)\n");
         String input = reader.readLine();
-        inputValidator.validateMoving(input);
-        return inputParser.parseMove(input);
+        inputValidator.validateMoveCommand(input);
+        return inputParser.parseMoveCommand(input);
     }
 
     public RestartCommand readGameCommand() {

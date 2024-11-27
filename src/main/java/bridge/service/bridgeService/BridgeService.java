@@ -16,7 +16,7 @@ public interface BridgeService {
 	
 	MoveResult playOneStep(
 			BridgeGame bridgeGame,
-			Supplier<Move> moveSupplier,
+			Supplier<MoveCommand> moveSupplier,
 			Consumer<MoveResult> moveResultConsumer
 	);
 	

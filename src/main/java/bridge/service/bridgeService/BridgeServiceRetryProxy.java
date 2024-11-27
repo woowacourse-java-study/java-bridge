@@ -1,7 +1,7 @@
 package bridge.service.bridgeService;
 
 import bridge.domain.BridgeGame;
-import bridge.domain.Move;
+import bridge.domain.MoveCommand;
 import bridge.domain.RestartCommand;
 import bridge.common.dto.MoveResult;
 import bridge.service.bridgeNumberGenerator.BridgeNumberGenerator;
@@ -26,7 +26,7 @@ public class BridgeServiceRetryProxy implements BridgeService {
 	}
 	
 	@Override
-	public MoveResult playOneStep(BridgeGame bridgeGame, Supplier<Move> moveSupplier, Consumer<MoveResult> moveResultConsumer) {
+	public MoveResult playOneStep(BridgeGame bridgeGame, Supplier<MoveCommand> moveSupplier, Consumer<MoveResult> moveResultConsumer) {
 		return retryHandler.tryUntilSuccess(() -> bridgeService.playOneStep(bridgeGame, moveSupplier, moveResultConsumer));
 	}
 	

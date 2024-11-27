@@ -30,9 +30,9 @@ public class Bridge {
 		return new Bridge(Step.fromList(brigeValue));
 	}
 	
-	public StepResult move(int position, Move move) {
+	public StepResult move(int position, MoveCommand moveCommand) {
 		Step currentStep = steps.get(position);
-		return new StepResult(position, move, currentStep.isValid(move));
+		return new StepResult(position, moveCommand, currentStep.isValid(moveCommand));
 	}
 	
 	public boolean isBridgeEnd(int currentPosition) {

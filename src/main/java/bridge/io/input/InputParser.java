@@ -1,6 +1,6 @@
 package bridge.io.input;
 
-import bridge.domain.Move;
+import bridge.domain.MoveCommand;
 import bridge.domain.RestartCommand;
 
 public class InputParser {
@@ -9,8 +9,8 @@ public class InputParser {
 		return Integer.parseInt(input);
 	}
 	
-	public Move parseMove(String input) {
-		return Move.from(input);
+	public MoveCommand parseMoveCommand(String input) {
+		return MoveCommand.from(input);
 	}
 	
 	public RestartCommand parseRestartCommand(String input) {

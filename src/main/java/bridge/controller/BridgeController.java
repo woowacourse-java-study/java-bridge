@@ -33,7 +33,7 @@ public class BridgeController implements Controller {
 	
 	private void playBridgeGame(BridgeGame bridgeGame) {
 		while(!bridgeGame.isBridgeGameSuccess()) {
-			MoveResult moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoving, outputView::printMap);
+			MoveResult moveResult = bridgeService.playOneStep(bridgeGame, inputView::readMoveCommand, outputView::printMap);
 			
 			if (moveResult.isFail() && !bridgeService.restartPlay(bridgeGame, inputView::readGameCommand)) {
 				break;
