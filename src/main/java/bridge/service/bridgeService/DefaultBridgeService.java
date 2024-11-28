@@ -28,10 +28,6 @@ public class DefaultBridgeService implements BridgeService {
 	@Override
 	public boolean restartPlay(BridgeGame bridgeGame, Supplier<RestartCommand> restartCommandSupplier) {
 		RestartCommand restartCommand = restartCommandSupplier.get();
-		if (restartCommand.isRestart()) {
-			bridgeGame.restart();
-			return true;
-		}
-		return false;
+		return bridgeGame.restart(restartCommand);
 	}
 }

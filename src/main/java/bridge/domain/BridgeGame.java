@@ -29,10 +29,14 @@ public class BridgeGame {
 		return bridge.isBridgeEnd(currentPosition);
 	}
 	
-	public void restart() {
+	public boolean restart(RestartCommand restartCommand) {
+		if (restartCommand.isEnd()) {
+			return false;
+		}
 		currentPosition = 0;
 		tryCount++;
 		stepResults.clear();
+		return true;
 	}
 	
 	public GameResult getGameResult() {

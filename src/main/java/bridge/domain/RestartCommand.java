@@ -23,7 +23,7 @@ public enum RestartCommand {
 				.orElseThrow(() -> CustomExceptions.ILLEGAL_RESTART.get(RESTART.inputValue, END.inputValue));
 	}
 	
-	public boolean isRestart() {
-		return this == RESTART;
+	public boolean isEnd() {
+		return this == END;
 	}
 }
